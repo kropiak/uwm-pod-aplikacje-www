@@ -121,7 +121,7 @@ REST (Representational State Transfer) to architektura, która określa zasady i
 ## Zadanie 4: Przygotowanie pierwszego projektu i aplikacji Django
 
 1. **Stwórz nowy projekt Django**:
-   - W terminalu, upewnij się, że jesteś w katalogu głównym swojego projektu (myproject). Następnie użyj polecenia:
+   - W terminalu, upewnij się, że jesteś w katalogu głównym swojego projektu (blog). Następnie użyj polecenia:
      ```bash
      django-admin startproject blog
      ```
