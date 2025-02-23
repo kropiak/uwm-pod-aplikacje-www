@@ -1,4 +1,4 @@
-# Projektowanie aplikacji webowych, semestr 2024Z
+# Aplikacje WWW
 
 ## Lab 3
 ---
