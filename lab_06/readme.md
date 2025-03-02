@@ -237,7 +237,7 @@ Teraz umieszczamy poniższą treść w pliku `templates\posts\topic\list.html`.
 
 _**Listing 8**_
 ```html
-{% extends "posts\base.html" %}
+{% extends "posts/base.html" %}
 
 {% block title %}Lista obiektów Topic{% endblock %}
 
@@ -325,7 +325,7 @@ _**Listing 11**_
 
 Zawartość pliku `templates\posts\topic\detail.html`
 ```html
-{% extends "posts\base.html" %}
+{% extends "posts/base.html" %}
 
 {% block title %}{{ topic.name }}{% endblock %}
 
