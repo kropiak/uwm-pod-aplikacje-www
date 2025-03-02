@@ -321,6 +321,8 @@ _Listing 15_
 
 #### **Zadania**
 
+> Przed rozpoczęciem pracy zatwierdź wszystkie zmiany na bieżącym branchu, a następnie utwórz branch o nazwie `lab_5` i przełącz się na niego. Po zakończeniu pracy zatwierdź zmiany.
+
 W swoim folderze z projektem (zapewne główny folder projektu\blog) stwórz folder o nazwie `zadania` i tam umieść plik `zadania_lab_5.md`, w którym umieść polecenia będące rozwiązaniem poniższych zadań. Przykład struktury pliku poniżej.
 
 ```markdown

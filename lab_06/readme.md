@@ -2,6 +2,10 @@
 
 ## Lab 6 - Definiowanie widoków w aplikacji Django. Proste szablony stron.
 ---
+
+:warning: :warning: :warning:
+> GIT: Rozpoczęcie pracy w ramach kolejnego laba powinno odbywać w nowym branchu po zatwierdzeniu zmian w poprzednim i scaleniu zmian do brancha main, jeżeli wszystko działa poprawnie.
+
 ### **1. Definiowanie widoków w aplikacji Django.**
 
 > Dokumentacja dla widoków w Django: https://docs.djangoproject.com/pl/4.2/topics/http/views/
@@ -336,13 +340,13 @@ Teraz dodanie widoku w pliku `posts\views.py`
 
 _**Listing 12**_
 ```python
-def person_detail(request, id):
-    # pobieramy konkretny obiekt Person
-    person = Person.objects.get(id=id)
+def topic_detail(request, id):
+    # pobieramy konkretny obiekt Topic
+    topic = Topic.objects.get(id=id)
 
     return render(request,
-                  "myapp/person/detail.html",
-                  {'person': person})
+                  "posts/topic/detail.html",
+                  {'topic': topic})
 ```
 
 I dodajemy mapowanie URL na nowy widok w pliku `posts\urls.py`
