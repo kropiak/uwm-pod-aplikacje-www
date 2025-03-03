@@ -52,12 +52,12 @@ W trakcie zajęć do pracy niezbędne będzie posiadanie:
 1.	**Modele**:
 * 4-5 modeli adekwatnych do tematu projektu
 
-2.	**Uwierzytelnianie (preferowany token) i autoryzacja.**
-* Co najmniej 2 konta z różnym poziomem dostępu do endpointów (np. superuser i zwykły użytkownik)
+2.	**Uwierzytelnianie**
+* Część endpointów powinna być zabezpieczona przed dostępem dla niezalogowanych użytkowników. (patrz przykładowa aplikacja)
 
 3.	**Endpointy:**
-* CRUD
-* Minimum 2 endpointy, które wyjdą poza schemat CRUD, np. zestawienie miesięczne zamówień, lista wypożyczeń dla użytkownika, lista towarów zaczynających się od itp.
+* CRUD - (odczyt, dodanie, edycja i usunięcie obiektu)
+* Minimum 2 endpointy, które wyjdą poza schemat CRUD, np. zestawienie miesięczne zamówień, lista wypożyczeń dla użytkownika, lista towarów zaczynających się od itp. (patrz przykładowa aplikacja)
 
 #### Opcja 2
 **Projekt Django + HTML + CSS**
@@ -68,9 +68,9 @@ W trakcie zajęć do pracy niezbędne będzie posiadanie:
 2. **Widoki**:
 * lista obiektów danego modelu (dla wszystkich dodanych modeli w models.py)
 * szczegóły dla danej instancji modelu (detail view)
-* z możliwością edycji obiektu oraz usunięcia obiektu
-* minimum 2 widoki dodatkowe: np. zestawienie zamówień za dany rok/miesiąc, lista produktów dla kategorii, postów danego użytkownika, itp.
+* z możliwością edycji obiektu oraz usunięcia obiektu (patrz przykładowa aplikacja)
+* minimum 2 widoki dodatkowe: np. zestawienie zamówień za dany rok/miesiąc, lista produktów dla kategorii, postów danego użytkownika, itp. (patrz przykładowa aplikacja)
 
 3. **Inne wymagania**:
-* dodany szablon strony (Django template)
-* dodany plik ze stylami (raczej prosty) do tego szablonu
+* dodany szablon strony (Django templates, patrz lab 6)
+* dodany plik ze stylami (raczej prosty) do tego szablonu (patrz przykładowa aplikacja)
