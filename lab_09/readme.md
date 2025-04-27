@@ -17,7 +17,7 @@ W przypadku Django i oraz DRF istnieje kilka sposobów na implementację procesu
 Do tej pory dostęp do API nie jest w żaden sposób kontrolowany i każdy znając adres URL może nasze API odpytać, również dla żądań PUT, POST czy DELETE.
 Aby dla danego endpointu określić restrykcje polegającą na dostępie tylko dla zalogowanego użytkownika musimy dokonać kilku zmian w dotychczasowym projekcie.
 
-**Krok 1 - przebudowanie endpointu dla klasy Person.**
+**Krok 1 - przebudowanie endpointu dla klasy Topic.**
 
 Przyjmijmy, że żądanie GET będzie możliwe bez restrykcji, a pozostałe będą wymagały uwierzytelnionego użytkownika.
 Aktualnie wszystkie metody (PUT, GET, DELETE) dla pojedynczego obiektu `Topic` są zdefiniowane w jednej funkcji, co utrudnia nam możliwość rozdzielenia uprawnień dla każdego z nich.
