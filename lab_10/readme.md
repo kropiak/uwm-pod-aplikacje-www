@@ -25,7 +25,7 @@ Django posiada wbudowany mechanizm podstawowych uprawnień dla każdego modelu, 
 * `view` - pozwala na wyświetlenie instancji obiektu.
 
 Aby całość funkcjonowała poprawnie w ekosystemie projektu nazwy uprawnień nadawane są wg. konwencji:
-`<nazwa_aplikacji>.<akcja>_<nazwa_modelu>` np. `ankiety.change_person`.
+`<nazwa_aplikacji>.<akcja>_<nazwa_modelu>` np. `blog.change_topic`.
 
 > **Każdy superuser posiada wszystkie prawa, chociaż bliższe prawdy jest stwierdzenie, że tak na prawdę te uprawnienia nie są dla niego sprawdzane w momencie użycia metody `has_perm(uprawnienie)`, które dla tekiego uzytkownika zawsze zwraca wartość `True`.**
 
