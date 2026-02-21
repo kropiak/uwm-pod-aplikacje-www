@@ -5,8 +5,8 @@
 Celem przedmiotu jest przybliżenie osobie studenckiej zagadnień związanych z projektowaniem aplikacji WWW z wykorzystaniem języka Python oraz frameworka Django. W trakcie zajęć zajmiemy się implementacją backendu (czyli część aplikacji związana z implementacją funkcjonalności po stronie serwera) oraz frontendu, czyli części związanej z wizualną prezentacją aplikacji.
 
 W trakcie zajęć osoba studencka pozna m.in. zagadnienia takie jak:
-* konfiguracja bazy danych na potrzeby aplikacji
 * podstawowa obsługa narzędzia Git
+* konfiguracja bazy danych na potrzeby aplikacji
 * tworzenie i zarządzanie modelami we frameworku Django
 * migracja bazy i rozwiązywanie problemów z migracjami
 * implementacja logiki biznesowej (wymagań klienta) w projekcie
@@ -15,21 +15,20 @@ W trakcie zajęć osoba studencka pozna m.in. zagadnienia takie jak:
 * widoki Django z wykorzystaniem modeli, formularzy oraz szablonów
 * obsługa i implementacja autentykacji i uwierzytelniania z użyciem Django
 * poznanie narzędzi zarządzania projektem Django oraz panelu administratora i jego możliwości
-* wprowadzenie do Javascript i prosty frontend oparty o biblioteke vue.js
 
 
 ## 2. Oprogramowanie
 
 W trakcie zajęć do pracy niezbędne będzie posiadanie:
-* zainstalowanego interpretera **Pythona** w wersji 3.11 lub nowszej
-* **framework Django** w wersji 4.2.*
-* narzędzie IDE, preferowane **PyCharm Professional** (licencja studencka) lub wersja **Community**. Może to być również inne oprogramowanie ze wsparciem dla języka Python, np. Visual Studio Code
+* zainstalowanego interpretera **Pythona** w wersji 3.12 lub nowszej
+* **framework Django** w wersji 5.2.*
+* narzędzie IDE, preferowane **PyCharm Professional** (licencja studencka) lub wersja **Community**. Może to być również inne oprogramowanie ze wsparciem dla języka Python, np. **Visual Studio Code**
 * narzędzie Git do zarządzania kodem projektu
 * możliwe, że w zależności od konfiguracji projektu niezbędne będzie zainstalowanie i konfiguracja odpowiedniego serwera bazy danych
 
 ## 3. Warunki zaliczenia przedmiotu.
 
-- Efektem finalnym pracy na zajęciach będzie **projekt API** stworzony w Django Rest Framework lub po uzgodnieniu w innym frameworku,
+- Efektem finalnym pracy na zajęciach będzie **projekt (API REST lub oparty na szablonach HTML)** stworzony z wykorzystaniem frameworka Django lub po uzgodnieniu w innym frameworku,
 - osoby studenckie mogą dobrać się w pary lub pracować samodzielnie (w wyjątkowych przypadkach dozwolona jest praca w 3-osobowej grupie),
 - Projekt osoby studenckiej będzie przechowywany w **repozytorium GitHub**, do którego prowadzący będzie miał wgląd przez cały okres trwania zajęć,
 - W przypadku pracy grupowej, obie osoby muszą być dodane jako collaborator do repozytorium,
@@ -38,7 +37,7 @@ W trakcie zajęć do pracy niezbędne będzie posiadanie:
    - Jakość kodu programistycznego,
    - Implementacja zagadnień przedstawionych na zajęciach,
    - Poziom skomplikowania projektu (np. ilość modeli, działanie endpointów, itp.)
-- Proponowany temat API (co te API będzie robić) jest dowolny i będzie przedstawiony prowadzącemu na drugich zajęciach.
+- Proponowany temat projektu jest dowolny i będzie przedstawiony prowadzącemu na zajęciach.
 - Prowadzący rezerwuje możliwość przeprowadzenia kolokwium w przypadku braku pracy na zajęciach przez grupę osób studenckich.
 
 ## 4. Wymagania projektu.

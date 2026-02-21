@@ -2,13 +2,14 @@
 
 ## Lab 4
 ---
+
 ### **1. Więcej możliwości modeli w ekosystemie Django.**
 
 
 Oprócz typowego mapowania obiektowo-relacyjnego klasy modeli frameworka Django oferują dużo więcej możliwości, m.in. implementację funkcji pomocniczych, określenie domyślnego porządku sortowania zwracanych krotek, określenie parametrów walidacji i inne. Poniżej zostaną zaprezentowane niektóre z możliwości wraz z przykładami użycia.
 
 Przydatne linki do dokumentacji, które mogą się przydać w trakcie rozwiązywania zadań:
-1. Lista dostępnych pól klas modeli: https://docs.djangoproject.com/pl/4.2/ref/models/fields/#model-field-types
+1. Lista dostępnych pól klas modeli: https://docs.djangoproject.com/pl/5.2/ref/models/fields/#model-field-types
 
 W Django modele definiują strukturę tabel w bazie danych, a typy pól (field types) określają, jakie dane mogą być przechowywane w tych tabelach. Poniżej znajduje się lista najpopularniejszych typów pól w Django, wraz z przykładami zastosowań i sposobem ich użycia:
 
@@ -206,7 +207,7 @@ W Django modele definiują strukturę tabel w bazie danych, a typy pól (field t
 
 Każde pole w modelu jest przetwarzane i walidowane automatycznie przez Django ORM, co znacznie upraszcza pracę z danymi. Można dodatkowo używać atrybutów takich jak `null=True`, `blank=True`, `default=...`, aby dostosować sposób przechowywania danych w bazie.
 
-2. Atrybuty modeli: https://docs.djangoproject.com/pl/4.2/topics/db/models/#field-options
+2. Atrybuty modeli: https://docs.djangoproject.com/pl/5.2/topics/db/models/#field-options
 
 Atrybuty modeli w Django definiują różne aspekty zachowania pól i modeli w interakcji z bazą danych oraz walidacją. Oto najczęściej używane atrybuty modeli Django, ich przykłady i zastosowanie:
 
@@ -412,24 +413,100 @@ Atrybuty modeli w Django definiują różne aspekty zachowania pól i modeli w i
 
 Każdy atrybut pomaga dostosować sposób, w jaki pola modeli są przechowywane, walidowane i prezentowane w formularzach lub administracji Django. Kombinacja tych atrybutów pozwala na szczegółowe definiowanie zachowań aplikacji.
 
+#### **1.1 Rozbudowa naszej aplikacji** 
 
-## **ZADANIA**
+Oprócz typowego mapowania obiektowo-relacyjnego klasy modeli frameworka Django oferują dużo więcej możliwości, m.in. implementację funkcji pomocniczych, określenie domyślnego porządku sortowania zwracanych krotek, określenie parametrów walidacji i inne. Poniżej zostaną zaprezentowane niektóre z możliwości wraz z przykładami użycia.
+
+Przydatne linki do dokumentacji, które mogą się przydać w trakcie rozwiązywania zadań:
+1. Lista dostępnych pól klas modeli: https://docs.djangoproject.com/pl/5.2/ref/models/fields/#model-field-types
+2. Atrybuty modeli: https://docs.djangoproject.com/pl/5.2/topics/db/models/#field-options
+3. Klasa QuerySet i dostępne metody: https://docs.djangoproject.com/pl/5.2/ref/models/querysets/
+
+### Zadania
+
+**Zadanie 0**  
+Rozpocznij pracę na nowym branchu swojego repozytorium.
 
 **Zadanie 1**  
-Pracę rozpocznij od utworzenia nowego brancha o nazwie `lab_4` w swoim repozytorium. Przełącz się na ten branch i kontynuuj pracę.
+Dodaj do aplikacji `posts` nowy model `Post` zgodnie z poniższą definicją:
+* pole `title` typu krótki tekst, max. 150 znaków,
+* pole `text` z długim tekstem,
+* pole `topic`, klucz obcy do modelu `Topic`, usuwanie kaskadowe,
+* pole `slug` typu `SlugField`,
+* pole `created_at` typu data i czas, wartość wstawiana automatycznie w momencie dodania rekordu,
+* pole `updated_at` typu data i czas, wartość aktualizowana po każdej aktualizacji instancji obiektu,
+* pole `created_by`, które jest kluczem obcym do wbudowanej klasy `django.contrib.auth.models.User`.
 
-Stwórz model `Post` z polami:
-* `topic` - klucz obcy do modelu `Topic`
-* `content` - pole tekstowe długie, wymagane
-* `created_at` - pole typu daty i czasu, automatycznie dodawana data i czas w momencie tworzenia instancji obiektu
-* `modified_at` - pole typu daty i czasu, automatycznie modyfikowany czas ostatniej modyfikacji obiektu (auto_now)
-* `created_by` - klucz obcy do modelu `django.contrib.auth.models.User`, przy usunięciu ustaw null
+**Zadanie 2**  
+Zarejestruj model w panelu administracyjnym Django. Znajdź w dokumentacji modułu admin ([link](https://docs.djangoproject.com/pl/5.2/ref/contrib/admin/)) jak deklaruje się pola modelu tylko do odczytu (własność `readonly_fields`) i ustaw taką własność dla pola `created_at` modelu `Post`. Sprawdź działanie w panelu administracyjnym.
 
-**Zadanie 2** 
-Przygotuj i wykonaj migrację. Dodaj modele do panelu administracyjnego i zapisz do bazy po 3 instancje obiektu `Post`.
+---
+
+W panelu administracyjnym dla dodanych modeli nie są widoczne wszystkie pola na liście wszystkich obiektów lecz tylko jedno z nich (domyślnie id lub to co w przesłoniętej metodzie `__str__()`). Aby to zrobić należy najpierw zdefiniować w pliku `admin.py` klasę admin dla danego modelu (ModelAdmin), a następnie zdefiniować listę pól do wyświetlenia w zmiennej `list_display`. Przykład poniżej:
+
+**_Listing 1_**
+Plik `admin.py`.
+```python
+# dla przykładowej klasy
+class PersonAdmin(admin.ModelAdmin):
+    # zmienna list_display przechowuje listę pól, które mają się wyświetlać w widoku listy danego modelu w panelu administracyjnym
+    list_display = ['full_name', 'shirt_size']
+
+    # Poprzez definicję metody w klasie admin można dodać dodatkowe pola do wyświetlenia
+    # tzw. pole dynamiczne, nie będzie ono zapisywane w bazie danych.
+    # Zakładamy, że model Person ma pola firstname oraz lastname
+    @admin.display(description='Full Name')
+    def full_name(self, obj):
+        return f"{obj.firstname} {obj.lastname}"
+
+# ten obiekt też trzeba zarejestrować w module admin
+# rejestracja musi w jednym wywołaniu wskazywać na model bazowy, oraz rozszerzony na
+# potrzeby panelu administracyjnego
+admin.site.register(Person, PersonAdmin)
+```
+---
 
 **Zadanie 3**  
-Dodaj nowe modele do panelu administracyjnego. Użyj panelu administracyjnego, żeby dodać nowe obiekty danych modeli. Co trzeba zrobić gdy tworzymy obiekt z modelu, który wykorzystuje klucz obcy?
+Przesłoń metodę `__str__()` zdefiniowanych modeli `Category`, `Topic` oraz `Post` według poniższej instrukcji:
+* `Category` - nazwa kategorii,
+* `Topic` - nazwa tematu,
+* `Post` - pierwsze 5 wyrazów tekstu posta + '...' jeżeli dłuższy.*
+
+\* Jeżeli dodamy klasę PostAdmin w `admin.py` oraz określimy listę kolumn do wyświetlenia, należy to obsłużyć jako dodatkowe pole w klasie `PostAdmin` (definiowane przez osadzenie metody w tej klasie, patrz **_Listing 1_** powyżej).
 
 **Zadanie 4**  
-Znajdź w dokumentacji modułu admin możliwość ustawienia danego pola modelu tylko do odczytu i ustaw taką własność dla pól `created_at` oraz `modified_at`.
+Bazując na przykładzie z dokumentacji https://docs.djangoproject.com/pl/5.2/topics/db/models/#meta-options dodaj właściwość `META` sortując domyślnie model `Category` po nazwie alfabetycznie, `Topic` podobnie, a `Post` po dacie dodania od najnowszych.
+
+**Zadanie 5**  
+Dodaj klasy `ModelAdmin` dla wszystkich zdefiniowanych modeli i zmień listę wyświetlanych kolumn w panelu administracyjnym.
+
+**Zadanie 6**  
+Zmodyfikuj kod aplikacji tak, żeby na liście modeli `Post` w panelu administracyjnym wyświetlana została również kolumna `Topic` o postaci 'nazwa topiku (nazwa kategorii)' np. `Batman (Filmy)`.  
+
+**Podpowiedź:** sprawdź w dokumentacji modułu admin opis działania adnotacji `@admin.display` ([link](https://docs.djangoproject.com/pl/5.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display)) lub zajrzyj do przykładu w **_Listing 1_** powyżej.
+
+---
+W panelu administracyjnym możliwe jest również dodanie filtrów do widoków. Cały proces polega na dodaniu pola `filter_list` w klasie admin danego modułu:
+
+**_Listing 2_**
+```python
+# przykład i wizualizacja dla przykładowego modelu Person oraz Team.
+
+class Admin(admin.ModelAdmin):
+    list_filter = ['team']
+```
+![filtry](filters.png)
+
+
+W zależności od typu pola zostanie wyświetlony odpowiedni filtr. W przypadku niektórych rodzajów i dużej liczby unikalnych wartości używanie filtrów może być niepraktyczne ze względów wydajnościowych i wizualnych.
+
+---
+
+**Zadanie 7**  
+Dodaj filtr dla tematów (topic), kategorii oraz użytkowników dla klasy `Post` w panelu administracyjnym.  Dodaj filtry nazw dla tematów oraz kategorii. Przetestuj działanie filtrów.
+
+**Zadanie 8**  
+Przeczytaj informację o możliwości automatycznego generowania wartości pola w dokumentacji(https://docs.djangoproject.com/pl/5.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.prepopulated_fields) i zastosuj to dla pola `SlugField` modelu `Post`, które będzie generowane z pola `title`.
+
+**Zadanie 9**  
+Jeżeli nie robiłeś/-aś tego wcześniej to zatwierdź wszystkie zmiany w danym branchu i spróbuj wykonać merge z główną gałęzią. Proponuję wykonać tę operację przy pomocy interfejsu IDE PyCharm, aby przetestować wbudowane narzędzie do wspomagania procesu merge (o ile wystąpią konflikty).

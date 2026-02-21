@@ -1,16 +1,16 @@
 # Aplikacje WWW
 
-## Lab 2
+## Lab 2. 
 ---
 
 
 # 1. Warto zacząć od...
 
-1.1 Zanim rozpoczniesz przygotowanie swojego pierwszego projektu z użyciem Django 4.2 rzuć okiem na release notes dla tej wersji: https://docs.djangoproject.com/pl/4.2/releases/4.2/
+1.1 Zanim rozpoczniesz przygotowanie swojego pierwszego projektu z użyciem Django 5.2 rzuć okiem na release notes dla tej wersji: https://docs.djangoproject.com/pl/5.2/releases/5.2/
 
 1.2 Jeżeli Twoja wiedza na temat działania protokołu HTTP wymaga odświeżenia to polecam dobry artykuł na ten temat: https://www.samouczekprogramisty.pl/protokol-http/
 
-1.3 Zachęcam również do zaglądnięcia do kilku ciekawych tutoriali (poza oficjalnym oczywiście) wprowadzających do tworzenia aplikacji z użyciem Django:
+1.3 Zachęcam również do zaglądnięcia do kilku ciekawych tutoriali (poza oficjalnym oczywiście) wprowadzających do tworzenia aplikacji z użyciem Django poza materiałami przedstawionymi na zajęciach:
 * https://realpython.com/get-started-with-django-1/ (i więcej kursów z tej strony w tematyce Django: https://realpython.com/tutorials/django/ )
 * https://www.w3schools.com/django/
 * https://tutorial.djangogirls.org/pl/
@@ -50,10 +50,10 @@ REST (Representational State Transfer) to architektura, która określa zasady i
 
 1. Jeżeli korzystasz na zajęciach ze swojego sprzętu to zainstaluj niezbędne oprogramowanie.
 2. Stwórz środowisko wirtualne z interpreterem python na potrzeby swojego projektu.
-3. Zainstaluj niezbędne paczki (aktualnie pakiet o nazwie `django` powinien wystarczyć). W razie problemów z instalacją rzuć okiem na oficjalną dokumentację pod adresem https://docs.djangoproject.com/pl/4.2/intro/install/
-4. Przygotuj swój pierwszy projekt oraz aplikację Django (warto znać różnicę między tymi pojęciami) bazując na oficjalnym tutorialu znajdującym się pod adresem https://docs.djangoproject.com/pl/4.2/intro/tutorial01/. Uruchom wbudowany serwer www (polecenie znajdziesz w tutorialu) i sprawdź czy wszystko działa.
+3. Zainstaluj niezbędne paczki (aktualnie pakiet `django==5.2` powinien wystarczyć). W razie problemów z instalacją rzuć okiem na oficjalną dokumentację pod adresem https://docs.djangoproject.com/pl/5.2/intro/install/
+4. Przygotuj swój pierwszy projekt oraz aplikację Django (warto znać różnicę między tymi pojęciami) bazując na oficjalnym tutorialu znajdującym się pod adresem https://docs.djangoproject.com/pl/5.2/intro/tutorial01/. Uruchom wbudowany serwer www (polecenie znajdziesz w tutorialu) i sprawdź czy wszystko działa.
 5. Skonfiguruj lokalne i zdalne repozytorium git. Przygotuj odpowiedni plik `.gitignore` dla projektu Django i wykonaj inicjalny commit oraz push do zdalnego repo. Przetestuj czy konfiguracja jest odpowiednia.
-
+6. Zastanów się nad tematem Twojego projektu i schematem bazy danych, który będzie potrzebny do jej działania. Możesz również wybrać na tym etapie silnik bazy danych, na którym będziesz chciał osadzić swoje dane.
 
 ## Przydatne instrukcje do zadań
 
@@ -71,57 +71,51 @@ REST (Representational State Transfer) to architektura, która określa zasady i
    pip --version
    ```
 
+
 ## Zadanie 2: Stworzenie środowiska wirtualnego
 
 1. **Utwórz folder projektu**:
    - Otwórz terminal i przejdź do folderu, w którym chcesz utworzyć projekt.
    - Utwórz nowy folder:
      ```bash
-     mkdir myproject
-     cd myproject
+     # przykładowy katalog projektu
+     mkdir blog
+     cd blog
      ```
 
 2. **Stwórz środowisko wirtualne**:
-
    - Uruchom polecenie, aby stworzyć wirtualne środowisko:
      ```bash
-     python -m venv .venv
-     # lub wykorzystując pakiet virtualenv
-     python -m virtualenv .venv
+     python -m venv venv
      ```
-  
-   - Aktywuj środowisko wirtualne (korzystając z narzędzi takich jak PyCharm lub VSC ta operacja powinna się wykonać automatycznie w momencie uruchomienia okna terminala wewnątrz w/w narzędzi):
+   - Aktywuj środowisko wirtualne:
      - Na Windows:
        ```bash
-       .venv\\Scripts\\activate
+       venv\\Scripts\\activate
        ```
      - Na macOS/Linux:
        ```bash
-       source .venv/bin/activate
+       source venv/bin/activate
        ```
-    Utworzenie środowiska wirtualnego jak już rozumiemy cały proces może być wykonane również za pomocą GUI narzędzi PyCharm lub VSC. W przypadku tego pierwszego możliwe jest to na etapie tworzenia nowego projektu lub w dowolnym momencie pracy nad nim. W przypadku VSC mamy możliwość wykonać to po zainstalowaniu pluginu do obsługi Pythona i skorzystaniu z **Command palette**, które będzie zawierało odpowiednie opcje. Proces tez zostanie zaprezentowany przez prowadzącego w trakcie zajęć.
-
 
 ## Zadanie 3: Instalacja niezbędnych paczek
 
 1. **Zainstaluj Django**:
    - W aktywowanym środowisku wirtualnym, upewnij się, że masz zainstalowany pakiet `django`:
      ```bash
-     # wyświetlenie listy zainstalowanych paczek
-     pip list
-     # instalacja Django (najnowsza wersja major 4, minor 4.2)
-     pip install django==4.2.*
-     # lub konkretnie (w momencie pisania dokumentacji najnowsza wersja release)
-     pip install django==4.2.19
+     pip install django==5.2
      ```
 
 2. **Rozwiązywanie problemów z instalacją**:
-   - W razie problemów z instalacją, sprawdź oficjalną dokumentację [Django](https://docs.djangoproject.com/pl/4.2/intro/install/) w celu uzyskania wskazówek dotyczących instalacji.
+   - W razie problemów z instalacją, sprawdź oficjalną dokumentację [Django](https://docs.djangoproject.com/pl/5.2/intro/install/) w celu uzyskania wskazówek dotyczących instalacji.
 
 ## Zadanie 4: Przygotowanie pierwszego projektu i aplikacji Django
 
 1. **Stwórz nowy projekt Django**:
-   - W terminalu, upewnij się, że jesteś w katalogu głównym swojego projektu (blog). Następnie użyj polecenia:
+
+    Na potrzeby kolejnych laboratoriów nazwij swój projekt `blog` a aplikację `posts`.
+
+   - W terminalu, upewnij się, że jesteś w katalogu głównym swojego projektu. Następnie użyj polecenia:
      ```bash
      django-admin startproject blog
      ```
@@ -155,10 +149,15 @@ REST (Representational State Transfer) to architektura, która określa zasady i
 2. **Przygotuj plik `.gitignore`**:
    - Utwórz plik `.gitignore` w katalogu głównym projektu. Dodaj następujące linie, aby zignorować pliki środowiska wirtualnego i inne pliki, które nie powinny być wersjonowane:
      ```
-     .venv/
+     # zwróć uwagę na faktyczną nazwę Twojego folderu środowiska wirtualnego
+     venv/
      *.pyc
-     __pycache__/
+     **/__pycache__/
+     # jeżeli nie chcesz wersjonować bazy danych SQLite
      db.sqlite3
+     # może być też przydatne ignorowanie plików IDE
+     # ale to zależy czy w poniższym folderze nie ma już pliku .gitignore
+     .idea/
      ```
 
 3. **Wykonaj inicjalny commit**:
