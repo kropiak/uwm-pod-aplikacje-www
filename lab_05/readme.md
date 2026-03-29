@@ -4,7 +4,7 @@
 ---
 ### **1. Praca z obiektami QuerySet.**
 
-> Dokumentacja Django QuerySet: https://docs.djangoproject.com/en/4.2/ref/models/querysets/
+> Dokumentacja Django QuerySet: https://docs.djangoproject.com/en/5.2/ref/models/querysets/
 
 API dostarczane przez klasę QuerySet służy do komunikowania się z poziomu aplikacji z bazą danych, która jest skonfigurowana w projekcie Django. Ten mechanizm jest warstwą mechanizmu ORM (Object Relational Mapping) czyli mapowania obiektowo-relacyjnego, które umożliwia konwersję obiektów modeli na tabele w bazie danych. API QuerySet umożliwia pobieranie, tworzenie, aktualizację oraz usuwanie obiektów z bazy danych. Operacje te wykonaliśmy już niejawnie wcześniej zarządzając obiektami z poziomu przeglądarki w formularzach dostarczonych przez panel administracyjny Django, który z API QuerySet korzysta.
 
