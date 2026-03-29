@@ -8,7 +8,7 @@
 
 ### **1. Definiowanie widoków w aplikacji Django.**
 
-> Dokumentacja dla widoków w Django: https://docs.djangoproject.com/pl/4.2/topics/http/views/
+> Dokumentacja dla widoków w Django: https://docs.djangoproject.com/pl/5.2/topics/http/views/
 
 
 Widokiem nazywamy kawałek kodu, który odpowiada za przetworzenie konkretnego obiektu `żądania` i zwrócenie obiektu `odpowiedzi`. We frameworku Django w podstawowej jego odsłonie (można korzystać z rozszerzających go modułów, np. Django Rest Framework) będą to odpowiednio obiekty `HttpRequest` oraz `HttpResponse`. Obiekt żądania będzie zawierał adres URL (Uniform Resource Locator, zobacz: https://pl.wikipedia.org/wiki/Uniform_Resource_Locator), który będzie wskazywał w sposób jednoznaczny dla danego hosta gdzie żądane zasoby się znajdują (lub zwróci np. błąd 404, jeżeli takich zasobów na tym hoście nie zdefiniowano) oraz może zawierać również dodatkowe parametry nazywane parametrami żądania. Protokół HTTP definiuje wiele typów żądań np. `GET`,`POST`, `PUT`, `PATCH`, `DELETE` i inne. 
@@ -52,7 +52,7 @@ Można zdefiniować wszystkie mapowania URL w głównym pliku `urls.py` (`blog\u
 
 Edytujemy plik `posts\urls.py` w naszej aplikacji.
 
-> Dokumentacja URL Dispatcher: https://docs.djangoproject.com/pl/4.2/topics/http/urls/
+> Dokumentacja URL Dispatcher: https://docs.djangoproject.com/pl/5.2/topics/http/urls/
 
 _**Listing 2**_
 ```python
