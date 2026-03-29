@@ -231,7 +231,7 @@ Znaczniki `{}`, które znajdują się w treści szablonu są specjalnymi znaczni
 
 W szablonie powyżej zdefiniowane zostały bloki `title` oraz `content`, których zawartość będziemy mogli podmieniać w poszczególnych podwidokach nie zmieniając całej reszty szablonu. Aktualnie nasz szablon nie korzysta z żadnego pliku ze stylami, zajmiemy się tym później.
 
-**Krok 3 - przygotowanie widoku dla listy obiektów Person.**
+**Krok 3 - przygotowanie widoku dla listy obiektów Topic.**
 
 Teraz umieszczamy poniższą treść w pliku `templates\posts\topic\list.html`.
 
