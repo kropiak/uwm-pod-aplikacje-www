@@ -292,7 +292,7 @@ _**Listing 10**_
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static "css/myapp.css" %}" rel="stylesheet">
+        <link href="{% static "css/posts.css" %}" rel="stylesheet">
     </head>
     <body>
         <div id="header" >
