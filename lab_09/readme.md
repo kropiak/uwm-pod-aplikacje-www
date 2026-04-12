@@ -134,9 +134,9 @@ def topic_detail(request, pk):
         return Response(serializer.data)
 
 
+@api_view(['PUT', 'DELETE'])
 @authentication_classes([SessionAuthentication, BasicAuthentication])
 @permission_classes([IsAuthenticated])
-@api_view(['PUT', 'DELETE'])
 def topic_update_delete(request, pk):
 
     """
